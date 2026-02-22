@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 28% 7%;
+    --foreground: 215 20% 93%;
+
+    --card: 222 24% 11%;
+    --card-foreground: 215 20% 93%;
+
+    --popover: 222 24% 11%;
+    --popover-foreground: 215 20% 93%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 20% 16%;
+    --secondary-foreground: 215 20% 90%;
+
+    --muted: 222 20% 14%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 20% 17%;
+    --input: 222 20% 17%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 33% 5%;
+    --sidebar-foreground: 215 15% 65%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 25% 10%;
+    --sidebar-accent-foreground: 215 15% 90%;
+    --sidebar-border: 222 20% 13%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Custom tokens */
+    --success: 152 69% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280 67% 60%;
+    --chart-5: 0 72% 55%;
+    --gradient-from: 217 91% 60%;
+    --gradient-to: 199 89% 48%;
+    --glass-bg: 222 28% 9% / 0.8;
+    --shadow-color: 0 0% 0%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15), 0 4px 12px hsl(var(--shadow-color) / 0.1);
+  }
+  .shadow-card {
+    box-shadow: 0 1px 3px hsl(var(--shadow-color) / 0.06), 0 4px 16px hsl(var(--shadow-color) / 0.04);
+  }
+  .font-mono-nums {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
